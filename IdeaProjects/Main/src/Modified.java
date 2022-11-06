@@ -8,8 +8,6 @@ public class Modified {
 
         Scanner s = new Scanner(System.in);
 
-        System.out.println("Hello Github");
-
         String choice = "";
         String re = "[A|a|B|b|C|c]";
         int amount = 0;
