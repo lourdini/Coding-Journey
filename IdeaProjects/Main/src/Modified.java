@@ -8,6 +8,8 @@ public class Modified {
 
         Scanner s = new Scanner(System.in);
 
+        System.out.println("Test Push");
+
         String choice = "";
         String re = "[A|a|B|b|C|c]";
         int amount = 0;
