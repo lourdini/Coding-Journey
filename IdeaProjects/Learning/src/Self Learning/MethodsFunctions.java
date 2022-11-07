@@ -86,7 +86,9 @@ public class MethodsFunctions {
         System.out.println(word);
     }
 */
-    //Return Keyword
+//Return Keyword
+        //return keyword is used to return a value from the
+        //method. It is used when a method has a result
 /*
     public static void main(String[] args){
 
@@ -119,13 +121,18 @@ public class MethodsFunctions {
         else return false;
     }
 */
-    //Overloading Methods
+//Overloading Methods
+        //You can use the same method name but different parameters
+        //so that you will cater every possibility of a method.
 /*
     public static void main(String[] args){
 
         System.out.println(add(5,2));
         System.out.println(add(5,2,10));
         System.out.println(add(2.3,5.5));
+
+        print(5);
+        print("Sheesshhh");
 
     }
 
@@ -139,6 +146,19 @@ public class MethodsFunctions {
 
     static int add(int num1, int num2, int num3){
         return num1+num2+num3;
+    }
+
+    static void print(String word){
+
+        System.out.println(word);
+
+    }
+
+    static void print(int num1){
+
+        String numString = Integer.toString(num1);
+        System.out.println(numString);
+
     }
 */
     //Summation
