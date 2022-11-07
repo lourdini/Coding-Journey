@@ -4,6 +4,12 @@ import java.lang.reflect.Array;
 
 public class MethodsFunctions {
 
+//Methods or Functions
+    //They are used to divide and sort Functionalities within a
+    //class so that the code will be readable even if it's long.
+
+    //modifier returntype methodName(){}
+    //Calling methods:  methodName();
 /*
     public static void main(String[] args){
 
@@ -21,8 +27,7 @@ public class MethodsFunctions {
     }
 */
 //---------------------------------------------------------
-    //Variable Scoping
-
+//Variable Scoping
     //Global Variables
 /*
     static String section = "A";
@@ -44,7 +49,12 @@ public class MethodsFunctions {
         System.out.println(num);
    }
 */
-    //Arguments/Parameters
+//Arguments or Parameters
+        //A value that needs to be passed on a Method so that
+        //the method can use that value and perform various
+        //operations on it.
+
+        //modifiers returntype methodName(arguments){}
 /*
     public static void main(String[] args){
 
@@ -132,7 +142,7 @@ public class MethodsFunctions {
     }
 */
     //Summation
-
+/*
     public static void main(String[] args){
 
         int numbers[] = {1,2,3,4,5};
@@ -151,6 +161,7 @@ public class MethodsFunctions {
         }
 
         return sum;
+ */
     }
 
 }

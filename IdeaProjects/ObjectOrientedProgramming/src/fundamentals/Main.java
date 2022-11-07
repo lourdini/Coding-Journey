@@ -8,6 +8,17 @@ public class Main {
 
     public static void main(String[] args){
 //Classes and Objects
+        //Classes act as a blueprint of an object that you want to
+        //implement in your program. They contain all the attributes
+        //and methods that your desired object should have.
+
+        //Objects are created by instantiating/express a Class.
+        //It is anything that has an attribute and a purpose.
+        //Example: Person, Furniture and Food
+
+        //Attributes are the global variables declared inside the
+        //class of our object. It is used to create variations of an
+        //object using only one class.
 /*
         Person p = new Person();
         p.firstName = "David";
@@ -89,8 +100,8 @@ public class Main {
         s2.evaluateGrade();
 */
 //Encapsulation
-//Get is Read-Only
-//Set is Write
+        //Get is Read-Only
+        //Set is Write
 /*
         User u = new User(202210307,"Lourdini","Lourd","Virtudazo");
 
