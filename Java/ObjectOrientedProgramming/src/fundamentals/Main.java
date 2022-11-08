@@ -19,6 +19,20 @@ public class Main {
         //Attributes are the global variables declared inside the
         //class of our object. It is used to create variations of an
         //object using only one class.
+
+//CLASS Instantiation
+        //The process of creating an Object using a class so we can
+        //use it in our program.
+
+        //ClassName identifier = new ClassName();
+
+//ACCESSING Attributes
+        //WRITING Attributes
+        //identifier.attribute = value;
+
+        //READING Attributes
+        //System.out.println(identifier.attribute);
+
 /*
         Person p = new Person();
         p.firstName = "David";
@@ -41,6 +55,18 @@ public class Main {
         Person pr = new Person();
 */
 //Constructors
+        //Is the method called when you instantiate a class /
+        //create an object.
+
+        //It is used to initialize the attributes of an object
+        //or run a block of code when an object is created.
+
+        //Constructor method are named after their Class Name.
+        //Constructors are used to initialize attributes.
+
+//USING Constructors
+        //ClassName identifier = new ClassName(Parameters);
+
 /*
         Product p = new Product("Hotdog", 12.0f);
         Product p1 = new Product("Noodles", 10.0f);
@@ -66,6 +92,15 @@ public class Main {
         Person p = new Person(firstName,lastName,sex,age);
 */
 //Object Methods
+        //Methods declared inside an Object Class.
+
+        //Object Methods are considered as the Object's purpose.
+
+//CALLING Object Methods
+        //SYNTAX
+            //ClassName cn = new ClassName(Constructor);
+            //cn.methodName(arguments);
+
 /*
         Character c = new Character("David","Hello There",
                 100,50,5);
@@ -116,7 +151,7 @@ public class Main {
         u.introduceSelf();
 */
 //Overloading Constructors
-
+/*
         Employee e = new Employee("David","Sdpt","Programmer","Mars",
                 "Male",21);
 
@@ -125,8 +160,7 @@ public class Main {
         Employee e2 = new Employee();
 
         System.out.println(e1.getFirstName()+" "+e.getLastName()+" "+e2.getTitle());
-
-//Inheritance
+*/
 
 
 

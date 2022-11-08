@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Person {
 
+    //Attributes  
     String firstName;
     String lastName;
     char sex;

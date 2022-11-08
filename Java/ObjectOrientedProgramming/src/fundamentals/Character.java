@@ -5,6 +5,7 @@ public class Character {
     String name, dialog;
     int hp, mp, lvl;
 
+    //Constructors are considered as Object Methods
     Character(String name, String dialog, int hp, int mp, int lvl){
 
         this.name = name;
