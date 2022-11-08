@@ -1,5 +1,3 @@
-package School;
-
 import java.lang.reflect.Array;
 
 public class MethodsFunctions {

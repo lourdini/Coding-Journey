@@ -67,8 +67,22 @@ public class Main {
                     //static   - The variables / methods belongs to the class
                     //         - itself rather than its instance.
 
+                    //             - Instead of instantiating, static modifier
+                    //             - directly accesses class with a (.)
+
+                    //             - Basically, add static modifier if you do
+                    //             - not need more than one instance of a class.
+
                     //abstract - It can only be used in an abstract class methods.
                     //           These methods do not have a body.
+
+                    //transient    - Variables and Methods are skipped when serializing
+                    //               the object containing them.
+
+                    //synchronized - Methods can only be accessed by one thread at a time
+
+                    //volatile     - The value of an attribute is not cached thread-locally,
+                    //               and is always read from the 'main memory'
 
 
 /*
@@ -81,6 +95,11 @@ public class Main {
         System.out.println(c.Pi);
 */
 //------------------static-----------------
+    //Instead of instantiating, static modifier directly access the
+    //Arithmetic class with a (.)
+
+    //Basically, add static modifier if you do not need more than
+    //one instance of a class.
 
         int sum = Arithmetic.add(5,2);
 
