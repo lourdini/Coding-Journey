@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Coding Journey.iml" filepath="$PROJECT_DIR$/.idea/Coding Journey.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IdeaProjects/GUI/GUI.iml" filepath="$PROJECT_DIR$/IdeaProjects/GUI/GUI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IdeaProjects/Learning/Learning.iml" filepath="$PROJECT_DIR$/IdeaProjects/Learning/Learning.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IdeaProjects/Main/Main.iml" filepath="$PROJECT_DIR$/IdeaProjects/Main/Main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IdeaProjects/ObjectOrientedProgramming/ObjectOrientedProgramming.iml" filepath="$PROJECT_DIR$/IdeaProjects/ObjectOrientedProgramming/ObjectOrientedProgramming.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Procedural-Programming/Procedural-Programming.iml" filepath="$PROJECT_DIR$/Procedural-Programming/Procedural-Programming.iml" />
+      <module fileurl="file://$PROJECT_DIR$/School/School.iml" filepath="$PROJECT_DIR$/School/School.iml" />
+    </modules>
+  </component>
+</project>

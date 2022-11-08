@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0af084a5-23c6-4e44-8ed7-c77850f39bf1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Procedural-Programming/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Procedural-Programming/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Procedural-Programming/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Procedural-Programming/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Procedural-Programming/out/production/Procedural-Programming/Arrays.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Procedural-Programming/out/production/Procedural-Programming/D2ArraysNestedLoops.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Procedural-Programming/out/production/Procedural-Programming/Experiments.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Procedural-Programming/out/production/Procedural-Programming/ForEachLoops.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Procedural-Programming/out/production/Procedural-Programming/ForLoops.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Procedural-Programming/out/production/Procedural-Programming/Formulas.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Procedural-Programming/out/production/Procedural-Programming/IfStatements.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Procedural-Programming/out/production/Procedural-Programming/Scanners.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Procedural-Programming/out/production/Procedural-Programming/School/MethodsFunctions.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Procedural-Programming/out/production/Procedural-Programming/School/Regex.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Procedural-Programming/out/production/Procedural-Programming/SwitchStatements.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Procedural-Programming/out/production/Procedural-Programming/WhileLoops.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Procedural-Programming/src/Arrays.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Procedural-Programming/src/D2ArraysNestedLoops.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Procedural-Programming/src/Experiments.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Procedural-Programming/src/ForEachLoops.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Procedural-Programming/src/ForLoops.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Procedural-Programming/src/Formulas.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Procedural-Programming/src/IfStatements.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Procedural-Programming/src/MethodsFunctions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Procedural-Programming/src/Regex.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Procedural-Programming/src/Scanners.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Procedural-Programming/src/SwitchStatements.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Procedural-Programming/src/WhileLoops.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdeaProjects/GUI/GUI.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdeaProjects/Learning/Learning.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdeaProjects/Main/Main.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdeaProjects/ObjectOrientedProgramming/ObjectOrientedProgramming.iml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2HF2d7j727CihkpeIAd81zAblw3" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/lourd/Documents/Coding Journey/School"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0af084a5-23c6-4e44-8ed7-c77850f39bf1" name="Changes" comment="" />
+      <created>1667866595593</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1667866595593</updated>
+    </task>
+    <servers />
+  </component>
+</project>
