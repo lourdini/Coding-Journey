@@ -16,17 +16,21 @@ public class Modified {
         int choiceInt = -1;
         boolean quantityNumbers = true;
 
+        char seniorChoice;
         int subtotal = 0;
         int payment = 0;
         int change = 0;
         char orderAgain;
         int total = 0;
         int a = 1;
+        double discount = 0;
 
-        int coffeeReceipt[] =new int[3] ;
+        int coffeeReceipt[] = new int[3] ;
         int coffeeOnePrice = 25;
         int coffeeTwoPrice = 30;
         int coffeeThreePrice = 35;
+
+        int quantityTotal[] = new int[3];
 
 
         String coffee[] = new String[4];
@@ -100,16 +104,26 @@ public class Modified {
                 }
 
                 do{
-                    do {
+
+                    for(int h =0;h<1;h++){
+
                         System.out.println();
                         System.out.print("Enter Quantity: ");
+
                         if (s.hasNextInt()) {
                             quantity[choiceInt] = s.nextInt();
+                            if(quantity[choiceInt] < 1 ){
+                                h--;
+                            }else{
+                                quantityTotal[choiceInt] += quantity[choiceInt];
+                            }
+
                         } else {
                             System.out.println("Invalid Input");
                             s.next();
                         }
-                    }while(quantity[choiceInt] == 0);
+
+                    }
 
                     subtotal = amount * quantity[choiceInt];
                     total += subtotal;
@@ -124,7 +138,7 @@ public class Modified {
                 System.out.println("Subtotal: " + total);
 
                 do {
-                    System.out.print("Do you want to order again?: ");
+                    System.out.print("Do you want to order again? (Y/N): ");
                     orderAgain = s.next().charAt(0);
 
                     if (orderAgain == 'y' || orderAgain == 'Y') {
@@ -133,7 +147,6 @@ public class Modified {
                         break;
                     }
                 } while (orderAgain != 'n' || orderAgain != 'N');
-                System.out.println();
 
             }while(orderAgain == 'y' || orderAgain == 'Y');
             do  {
@@ -155,6 +168,22 @@ public class Modified {
                 }
             }while (payment < total);
 
+            System.out.print("");
+
+            do {
+                System.out.println();
+                System.out.print("Are you a Senior Citizen? (Y/N): ");
+                seniorChoice = s.next().charAt(0);
+
+                if (seniorChoice == 'y' || seniorChoice == 'Y') {
+                    break;
+                } else if (seniorChoice == 'n' || seniorChoice == 'N') {
+                    break;
+                }
+            } while (seniorChoice != 'n' || seniorChoice != 'N');
+
+            System.out.println();
+
             System.out.println();
             System.out.println("******************Receipt#"+a+"*********************");
 
@@ -162,22 +191,41 @@ public class Modified {
             System.out.println();
             if(coffeeReceipt[0] == 1) {
                 System.out.print(coffee[coffeeReceipt[0]]);
-                System.out.println("     P25.00"+"          "+quantity[0]+"            "+"P"+coffeeOnePrice*quantity[0]);
+                System.out.println("     P25.00"+"          "+quantityTotal[0]+"            "+"P"+coffeeOnePrice*quantityTotal[0]);
             }
 
             if(coffeeReceipt[1] == 2){
                 System.out.print(coffee[coffeeReceipt[1]]);
-                System.out.println("         P30.00"+"          "+quantity[1]+"            "+"P"+coffeeTwoPrice*quantity[1]);
+                System.out.println("         P30.00"+"          "+quantityTotal[1]+"            "+"P"+coffeeTwoPrice*quantityTotal[1]);
             }
 
             if(coffeeReceipt[2] == 3){
                 System.out.print(coffee[coffeeReceipt[2]]);
-                System.out.println("         P35.00"+"          "+quantity[2]+"            "+"P"+coffeeThreePrice*quantity[2]);
+                System.out.println("         P35.00"+"          "+quantityTotal[2]+"            "+"P"+coffeeThreePrice*quantityTotal[2]);
             }
+
+            discount = total * .15;
+
+
+
             System.out.println("********************Total***********************");
             System.out.println("                                    Total: P"+total);
+            if(seniorChoice == 'y' || seniorChoice == 'Y'){
+                System.out.println("                        Senior's Discount: P"+discount);
+            }
             System.out.println("                                   Amount: P"+payment);
-            System.out.println("                                   Change: P"+change);
+
+            if(seniorChoice == 'y' || seniorChoice == 'Y') {
+                System.out.println("                                   Change: P" + (change + discount));
+            }else{
+                System.out.println("                                   Change: P"+change);
+            }
+
+            total = 0;
+            quantityTotal[0] = 0;
+            quantityTotal[1] = 0;
+            quantityTotal[2] = 0;
+
 
             coffeeReceipt[0]= 0;
             coffeeReceipt[1]= 0;
