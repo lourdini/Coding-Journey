@@ -8,19 +8,27 @@ public class Modified {
 
         Scanner s = new Scanner(System.in);
 
+        String coffee[] = new String[4];
+        coffee[0] = "";
+        coffee[1] = "Americano";
+        coffee[2] = "Irish";
+        coffee[3] = "Mocha";
+
         String choice = "";
         String re = "[A|a|B|b|C|c]";
-        int amount = 0;
-
-        int quantity[] = new int[3];
-        int choiceInt = -1;
-        boolean quantityNumbers = true;
 
         char seniorChoice;
+        char orderAgain = 0;
+        boolean quantityNumbers = true;
+        boolean outStock = true;
+
+        int amount = 0;
+        int quantity[] = new int[3];
+        int quantityTotal[] = new int[3];
+        int choiceInt = -1;
         int subtotal = 0;
         int payment = 0;
         int change = 0;
-        char orderAgain;
         int total = 0;
         int a = 1;
         double discount = 0;
@@ -30,21 +38,22 @@ public class Modified {
         int coffeeTwoPrice = 30;
         int coffeeThreePrice = 35;
 
-        int quantityTotal[] = new int[3];
+        int terminate = 0;
+        int stock[] = new int[3];
+        stock[0] = 15;
+        stock[1] = 20;
+        stock[2] = 10;
 
-
-        String coffee[] = new String[4];
-
-        coffee[0] = "";
-        coffee[1] = "Americano";
-        coffee[2] = "Irish";
-        coffee[3] = "Mocha";
+        int stockLeft[] = new int[3];
+        stockLeft[0] = 0;
+        stockLeft[1] = 0;
+        stockLeft[2] = 0;
 
         Pattern pt = Pattern.compile(re);
         Matcher mt = pt.matcher(choice);
 
-        while(true){
-
+        do{
+            System.out.println();
             System.out.println("Welcome to Lourdini's Coffee Shop");
             System.out.println();
             System.out.print("Enter Username: ");
@@ -55,58 +64,82 @@ public class Modified {
             System.out.println();
 
             System.out.println("Coffee Menu:");
-            System.out.println("A. P25.00 Americano\nB. P30.00 Irish \nC. P35.00 Mocha");
+            System.out.println("A. P25.00 Americano    Stock :"+stock[0]);
+            System.out.println("B. P30.00 Irish        Stock :"+stock[1]);
+            System.out.println("C. P35.00 Mocha        Stock :"+stock[2]);
+
             System.out.println();
 
 
             do {
-                for(int i = 0;i<1;i++) {
-                    System.out.print("Select your choice: ");
-                    if (s.hasNext(re)) {
-                        choice = s.next();
-                        i = 1;
-                    } else {
-                        System.out.println("Choice not recognized");
-                        System.out.println();
-                        s.next();
-                        i--;
+                do {
+                    for (int i = 0; i < 1; i++) {
+                        System.out.print("Select your choice: ");
+                        if (s.hasNext(re)) {
+                            choice = s.next();
+                            i = 1;
+                        } else {
+                            System.out.println("Choice not recognized");
+                            System.out.println();
+                            s.next();
+                            i--;
+                        }
                     }
-                }
 
-                switch (choice) {
-                    case "A":
-                    case "a":
-                        System.out.println();
-                        System.out.println("You ordered Americano");
-                        amount = 25;
-                        coffeeReceipt[0] = 1;
-                        choiceInt = 0;
-                        break;
-                    case "B":
-                    case "b":
-                        System.out.println();
-                        System.out.println("You ordered Irish");
-                        amount = 30;
-                        coffeeReceipt[1] = 2;
-                        choiceInt = 1;
-                        break;
-                    case "C":
-                    case "c":
-                        System.out.println();
-                        System.out.println("You ordered Mocha");
-                        amount = 35;
-                        coffeeReceipt[2] = 3;
-                        choiceInt = 2;
-                        break;
-                    default:
-                        System.out.println();
+                    switch (choice) {
+                        case "A":
+                        case "a":
+                            if (stock[0] > 0) {
+                                System.out.println("You ordered Americano");
+                                amount = 25;
+                                coffeeReceipt[0] = 1;
+                                choiceInt = 0;
+                                outStock = false;
+                            } else {
+                                System.out.println("Out of Stock");
+                                System.out.println();
+                                outStock = true;
+                            }
+                            break;
+                        case "B":
+                        case "b":
+                            if (stock[1] > 0) {
+                                System.out.println("You ordered Irish");
+                                amount = 30;
+                                coffeeReceipt[1] = 2;
+                                choiceInt = 1;
+                                outStock = false;
+                            } else {
+                                System.out.println("Out of Stock");
+                                System.out.println();
+                                outStock = true;
+                            }
+                            break;
+                        case "C":
+                        case "c":
+                            if (stock[2] > 0) {
+                                System.out.println("You ordered Mocha");
+                                amount = 35;
+                                coffeeReceipt[2] = 3;
+                                choiceInt = 2;
+                                outStock = false;
+                            } else {
+                                System.out.println("Out of Stock");
+                                System.out.println();
+                                outStock = true;
+                            }
+                            break;
+                        default:
+                            System.out.println();
 
-                }
+                    }
+                }while(outStock);
 
                 do{
 
                     for(int h =0;h<1;h++){
 
+                        quantity[choiceInt] = 0;
                         System.out.println();
                         System.out.print("Enter Quantity: ");
 
@@ -114,12 +147,16 @@ public class Modified {
                             quantity[choiceInt] = s.nextInt();
                             if(quantity[choiceInt] < 1 ){
                                 h--;
-                            }else{
+                            }else if(quantity[choiceInt] > stock[choiceInt]){
+                                System.out.println("Insufficient Stock");
+                                h--;
+                            }else {
                                 quantityTotal[choiceInt] += quantity[choiceInt];
+                                stockLeft[choiceInt] = stock[choiceInt] - quantityTotal[choiceInt];
                             }
-
                         } else {
                             System.out.println("Invalid Input");
+                            h--;
                             s.next();
                         }
 
@@ -134,19 +171,44 @@ public class Modified {
 
                 }while(quantityNumbers);
 
+
+
+                if(choiceInt == 0) {
+                    stock[0] = stock[0] - quantity[0];
+                }
+
+                if(choiceInt == 1){
+                    stock[1] = stock[1] - quantity[1];
+                }
+
+                if(choiceInt == 2){
+                    stock[2] = stock[2] - quantity[2];
+                }
+
+                System.out.println("Coffee Menu:");
+                System.out.println("A. P25.00 Americano    Stock :"+stock[0]);
+                System.out.println("B. P30.00 Irish        Stock :"+stock[1]);
+                System.out.println("C. P35.00 Mocha        Stock :"+stock[2]);
                 System.out.println();
                 System.out.println("Subtotal: " + total);
 
-                do {
-                    System.out.print("Do you want to order again? (Y/N): ");
-                    orderAgain = s.next().charAt(0);
 
-                    if (orderAgain == 'y' || orderAgain == 'Y') {
-                        break;
-                    } else if (orderAgain == 'n' || orderAgain == 'N') {
-                        break;
-                    }
-                } while (orderAgain != 'n' || orderAgain != 'N');
+                if(stock[0] == 0 && stock[1] == 0 && stock[2] == 0) {
+                    System.out.println("All out of everything. Proceed to check-out.");
+                    orderAgain = 'n';
+                }else{
+                    do {
+                        System.out.print("Do you want to order again? (Y/N): ");
+                        orderAgain = s.next().charAt(0);
+                        System.out.println();
+
+                        if (orderAgain == 'y' || orderAgain == 'Y') {
+                            break;
+                        } else if (orderAgain == 'n' || orderAgain == 'N') {
+                            break;
+                        }
+                    } while (orderAgain != 'n' || orderAgain != 'N');
+                }
 
             }while(orderAgain == 'y' || orderAgain == 'Y');
             do  {
@@ -185,7 +247,7 @@ public class Modified {
             System.out.println();
 
             System.out.println();
-            System.out.println("******************Receipt#"+a+"*********************");
+            System.out.println("*****************(Receipt#"+a+")********************");
 
             System.out.println("Item          Price          Qty          Total");
             System.out.println();
@@ -208,7 +270,7 @@ public class Modified {
 
 
 
-            System.out.println("********************Total***********************");
+            System.out.println("*******************(Total)**********************");
             System.out.println("                                    Total: P"+total);
             if(seniorChoice == 'y' || seniorChoice == 'Y'){
                 System.out.println("                        Senior's Discount: P"+discount);
@@ -220,6 +282,9 @@ public class Modified {
             }else{
                 System.out.println("                                   Change: P"+change);
             }
+
+
+            terminate = stock[0] + stock[1] + stock[2];
 
             total = 0;
             quantityTotal[0] = 0;
@@ -235,7 +300,9 @@ public class Modified {
             System.out.println();
             System.out.println();
             System.out.println();
-        }
+
+        }while(terminate != 0);
+
 
     }
 
