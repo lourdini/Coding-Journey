@@ -317,6 +317,42 @@ public class Main {
         frame.setVisible(true);
 */
 
+    //JOptionPane   = Pop up a standard dialog box that prompts users for a value
+    //                or informs them of something.
+/*
+        //JOptionPane.showMessageDialog(null,"This is some useless info","Title",JOptionPane.PLAIN_MESSAGE);
+        //JOptionPane.showMessageDialog(null,"Here is more useless info","Title",JOptionPane.INFORMATION_MESSAGE);
+        //JOptionPane.showMessageDialog(null,"Really?","Title",JOptionPane.QUESTION_MESSAGE);
+        //JOptionPane.showMessageDialog(null,"Your computer has a virus","Title",JOptionPane.WARNING_MESSAGE);
+        //JOptionPane.showMessageDialog(null,"Call Tech Support","Title",JOptionPane.ERROR_MESSAGE);
+
+        //int answer = JOptionPane.showConfirmDialog(null,"Bro, do you even code?","My Title",JOptionPane.YES_NO_CANCEL_OPTION);
+        //String name = JOptionPane.showInputDialog("What is your name? : ");
+        //System.out.println(name);
+
+        String[] responses = {"No, you're awesome!","Thank you!","Blush"};
+        ImageIcon icon = new ImageIcon("shocked.png");
+
+        JOptionPane.showOptionDialog(null,
+                "You are awesome",
+                "Secret Message",
+                JOptionPane.YES_NO_CANCEL_OPTION,
+                JOptionPane.INFORMATION_MESSAGE,
+                icon,
+                responses,
+                0);
+*/
+        while(true) {
+            int answer = JOptionPane.showConfirmDialog(null, "Nagkaon naka?", "Question", JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+
+            if (answer == 0) {
+                JOptionPane.showMessageDialog(null, "Kaon utro!", "Responds", JOptionPane.PLAIN_MESSAGE);
+            } else if (answer == 1) {
+                JOptionPane.showMessageDialog(null, "Pagkaon na!", "Responds", JOptionPane.PLAIN_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Snobber!", "Responds", JOptionPane.PLAIN_MESSAGE);
+            }
+        }
 
 
 
