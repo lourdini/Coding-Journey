@@ -342,18 +342,30 @@ public class Main {
                 responses,
                 0);
 */
-        while(true) {
-            int answer = JOptionPane.showConfirmDialog(null, "Nagkaon naka?", "Question", JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 
-            if (answer == 0) {
-                JOptionPane.showMessageDialog(null, "Kaon utro!", "Responds", JOptionPane.PLAIN_MESSAGE);
-            } else if (answer == 1) {
-                JOptionPane.showMessageDialog(null, "Pagkaon na!", "Responds", JOptionPane.PLAIN_MESSAGE);
-            } else {
-                JOptionPane.showMessageDialog(null, "Snobber!", "Responds", JOptionPane.PLAIN_MESSAGE);
-            }
-        }
+    //JTextField    = A GUI textbox component that can be used to add, set, or get text
+/*
+        MyFrame frame = new MyFrame();
+*/
 
+        JLabel picture = new JLabel(new ImageIcon("bg.png"));
+
+        JPanel panel1 = new JPanel();
+        panel1.add(picture);
+
+        JPanel panel2 = new JPanel();
+        panel2.setBackground(Color.RED);
+        panel2.setSize(new Dimension(500,525));
+
+
+        JFrame frame = new JFrame("Log-in");
+        frame.setLayout(new BorderLayout());
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLocationRelativeTo(null);
+        frame.setSize(1000,525);
+        frame.add(panel1,BorderLayout.WEST);
+        frame.add(panel2);
+        frame.setVisible(true);
 
 
     }

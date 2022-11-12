@@ -10,12 +10,13 @@ import java.awt.event.ActionListener;
 public class MyFrame extends JFrame implements ActionListener {
 
     JButton button;
+    JTextField textField;
     JLabel label;
 
     MyFrame(){
 
         //Other way to create JFrame
-        /*
+/*
         this.setTitle("JFrame title goes here");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(true);
@@ -25,10 +26,10 @@ public class MyFrame extends JFrame implements ActionListener {
         ImageIcon image = new ImageIcon("logo.png");
         this.setIconImage(image.getImage());
         this.getContentPane().setBackground(new Color(0x2B2B2B));
-         */
+*/
 
         //JButton
-
+/*
         ImageIcon icon = new ImageIcon("like.png");
         ImageIcon shock = new ImageIcon("shocked.png");
 
@@ -64,18 +65,49 @@ public class MyFrame extends JFrame implements ActionListener {
         this.setVisible(true);
         this.add(button);
         this.add(label);
+*/
+
+        //JTextField
+
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLayout(new FlowLayout());
+
+        button = new JButton("Submit");
+        button.addActionListener(this);
+
+        textField = new JTextField();
+        textField.setPreferredSize(new Dimension(250,40));
+        textField.setFont(new Font("Consolas",Font.PLAIN,35));
+        textField.setForeground(new Color(0x00FF00));
+        textField.setBackground(Color.black);
+
+    //Set color to cursor
+        textField.setCaretColor(Color.WHITE);
+
+        textField.setText("Username");
+
+        this.add(button);
+        this.add(textField);
+        this.pack();
+        this.setVisible(true);
 
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        /*
         if(e.getSource() == button){
             //System.out.println("Clicked");
         //Can only be clicked once
             //button.setEnabled(false);
 
             label.setVisible(true);
+        }
+         */
+        if(e.getSource()==button){
+            System.out.println("Welcome "+textField.getText());
+            textField.setEditable(false);
+            button.setEnabled(false);
         }
 
     }
