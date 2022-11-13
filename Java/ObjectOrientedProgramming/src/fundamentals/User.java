@@ -14,6 +14,14 @@ public class User {
         this.lastName = lastName;
 
     }
+
+    //SETTER        - Is a method used to set encapsulated variables
+    //GETTER        - Is a method used to get encapsulated variables
+
+    //Conventional that it starts with get/set
+
+    //Use "get" only if you want read-only
+    //Use "set" only if you want to write
 /*
     int getUserID(){
         return userID;

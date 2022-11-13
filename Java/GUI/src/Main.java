@@ -361,8 +361,8 @@ public class Main {
         JFrame frame = new JFrame("Log-in");
         frame.setLayout(new BorderLayout());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLocationRelativeTo(null);
         frame.setSize(1000,525);
+        frame.setResizable(false);
         frame.add(panel1,BorderLayout.WEST);
         frame.add(panel2);
         frame.setVisible(true);

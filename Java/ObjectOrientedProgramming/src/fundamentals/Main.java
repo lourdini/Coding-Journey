@@ -135,9 +135,18 @@ public class Main {
         s2.evaluateGrade();
 */
 //Encapsulation
-        //Get is Read-Only
-        //Set is Write
-/*
+        //Is an opp technique used to hide data from direct access.
+
+        //GETTERS & SETTERS     - Are methods used to get and
+        //                        set encapsulated variables
+
+        //SETTER        - Is a method used to set encapsulated variables
+        //GETTER        - Is a method used to get encapsulated variables
+
+        //Use "get" only if you want read-only
+        //Use "set" only if you want to write
+
+        //(u) has values but cannot be accessed directly
         User u = new User(202210307,"Lourdini","Lourd","Virtudazo");
 
         int id = u.getUserID();
@@ -149,7 +158,7 @@ public class Main {
 
         System.out.println();
         u.introduceSelf();
-*/
+
 //Overloading Constructors
 /*
         Employee e = new Employee("David","Sdpt","Programmer","Mars",
