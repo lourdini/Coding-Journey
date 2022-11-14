@@ -9,7 +9,16 @@ public class Main {
 //jdbc      - Java™ database connectivity
 //mysql     - Serves like https
 //3306      - Default port number
+
 //VARCHAR   - Serves like String for database
+//          - Length/Values - How many characters do you think it's going to have (30)
+//                          - Grades 1-12, so it just needs (2)
+
+//TEXT      - If you don't know how many characters it's going to take up
+//          - Ex. Address
+
+//Database URL Format: jbc:mysql://localhost:3306/"dbname"
+//                  or jbc:mysql://localhost:3306/"dbname"?user=...&password=...
 
 //Name of database is always lowercase
 
@@ -20,6 +29,7 @@ public class Main {
         String password = "root";
 
         try {
+            //Driver class name
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             Connection connection = DriverManager.getConnection(url,username,password);
