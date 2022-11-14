@@ -147,6 +147,7 @@ public class Main {
         //Use "set" only if you want to write
 
         //(u) has values but cannot be accessed directly
+/*
         User u = new User(202210307,"Lourdini","Lourd","Virtudazo");
 
         int id = u.getUserID();
@@ -158,8 +159,12 @@ public class Main {
 
         System.out.println();
         u.introduceSelf();
-
+*/
 //Overloading Constructors
+        //Is an OOP technique used to create multiple constructors with
+        //different arguments. It is used to cope up with the needs of
+        //a certain instance of an object.
+
 /*
         Employee e = new Employee("David","Sdpt","Programmer","Mars",
                 "Male",21);

@@ -5,10 +5,13 @@ public class Person {
     String name, sex;
     int age;
 
-    //Explicit Constructor
-    Person(){ }
+    //Explicit Constructor  - no arguments
+        //Used to not having to add "super" to subclass
+    Person(){
 
-    //Implicit Constructor
+    }
+
+    //Implicit Constructor  - has arguments
     Person(String name, String sex, int age){
         this.name = name;
         this.sex = sex;
