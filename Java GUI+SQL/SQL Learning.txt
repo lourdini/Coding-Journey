@@ -1,0 +1,153 @@
+--https://www.youtube.com/watch?v=h0nxCDiD-zg&t=395s
+
+
+--See all Customers
+/*
+Select CustomerName From dbo.Customers
+*/
+
+--See more column
+/*
+Select CustomerName, Notes From dbo.Customers
+*/
+
+--Specify database KCC.dbo.Customers
+/*
+Select CustomerName, Notes From KCC.dbo.Customers
+*/
+
+--Customize or Define header
+/*
+Select CustomerName as [Customer Name], Notes From KCC.dbo.Customers
+*/
+
+--Distinct or unique list only
+/*
+Select distinct CustomerName as [Customer Name] From KCC.dbo.Customers
+*/
+
+--Select all columns(*)
+/*
+Select * From KCC.dbo.Customers   
+*/
+
+--Specify select columns
+/*
+Select top(3)* From KCC.dbo.Customers
+*/
+
+-------------------------------------------------------------------------
+
+--Filtering with where
+/*
+Select * 
+From KCC.dbo.Customers 
+where State = 'WA'
+*/
+
+--Filtering with inverse where
+/*
+Select * 
+From KCC.dbo.Customers 
+where State != 'WA'
+*/
+
+--Filtering with or
+/*
+Select * 
+From KCC.dbo.Customers 
+where State = 'WA' or State = 'NY'
+*/
+
+-------------------------------------------------------------------------
+
+--Filtering multiple or
+/*
+Select * 
+From KCC.dbo.Customers 
+where State IN('WA' , 'NY' , 'UT')
+*/
+
+--Filtering NOT IN
+/*
+Select * 
+From KCC.dbo.Customers 
+where State NOT IN('WA' , 'NY' , 'UT')
+*/
+
+-------------------------------------------------------------------------
+
+--Filtering with AND
+/*
+Select * 
+From KCC.dbo.Customers 
+where CustomerName = 'Tres Delicious' AND Country = 'United States'
+*/
+
+--Filtering with AND OR with () to specify first function
+/*
+Select * 
+From KCC.dbo.Customers 
+where CustomerName = 'Tres Delicious' AND (Country = 'United States'
+OR Country = 'France')
+*/
+
+-------------------------------------------------------------------------
+
+--LIKE(similar)/ (%)followed by any number of characters
+/*
+Select * 
+From KCC.dbo.Customers 
+where CustomerName LIKE 'A%' AND (Country = 'United States'
+OR Country = 'France')
+*/ 
+
+--NOT LIKE(inverse)/
+Select * 
+From KCC.dbo.Customers 
+where CustomerName NOT LIKE 'A%' AND (Country = 'United States'
+OR Country = 'France')
+
+-------------------------------------------------------------------------
+
+--Conditional WHERE
+/*
+SELECT TOP (1000) [OrderID]
+      ,[OrderDate]
+      ,[CustomerID]
+      ,[OrderTotal]
+  FROM [KCC].[dbo].[Orders]
+  WHERE OrderTotal >= 1000
+*/
+
+--Conditional between
+/*
+SELECT TOP (1000) [OrderID]
+      ,[OrderDate]
+      ,[CustomerID]
+      ,[OrderTotal]
+  FROM [KCC].[dbo].[Orders]
+  WHERE OrderTotal between 1000 and 2000
+*/
+
+-------------------------------------------------------------------------
+
+--JOIN to join columns from different db
+/*
+Select OrderID, 
+OrderDate, 
+OrderTotal, 
+CustomerName,
+Phone
+From dbo.Orders JOIN dbo.Customers on dbo.Orders.CustomerID = dbo.Customers.CustomerID
+*/
+
+--Right outer JOIN - view columns with no orders
+/*
+Select OrderID, 
+OrderDate, 
+OrderTotal, 
+CustomerName,
+Phone
+From dbo.Orders Right outer JOIN dbo.Customers on dbo.Orders.CustomerID = dbo.Customers.CustomerID
+*/
