@@ -1,11 +1,8 @@
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import javax.swing.table.DefaultTableModel;
+import java.awt.event.*;
 
-public class DinerOrderPanel extends JFrame {
+public class DinerOrderPanel extends JFrame{
     private JPanel dinerOrderPanel;
     private JPanel jpSteakEggs;
     private JPanel jpSteakSandwich;
@@ -17,7 +14,6 @@ public class DinerOrderPanel extends JFrame {
     private JPanel jp4PFChicken;
     private JPanel jp4PFChiVeggies;
     private JPanel jpMenu;
-    private JTable table1;
     private JTextArea textArea1;
     private JButton btnDelete;
     private JTextField textField1;
@@ -27,219 +23,146 @@ public class DinerOrderPanel extends JFrame {
     private JPanel jpMenuFunctions;
     private JButton logoutButton;
     private JButton exitButton;
+    private JTable jtItems;
+    private JSpinner spinQuantity;
+    private JButton addButton;
+    private JRadioButton rbSteakEggs;
+    private JRadioButton rbSteakSandwich;
+    private JRadioButton rbSteakDinner;
+    private JRadioButton rbVeggieSkillet;
+    private JRadioButton rbFishTacos;
+    private JRadioButton rbFishChips;
+    private JRadioButton rb2x2x;
+    private JRadioButton rb4PChick;
+    private JRadioButton rb4PChickVeg;
+    private JLabel jltotal;
+
+    DefaultTableModel model;
+
+    String itemName = "";
+    double price = 0;
 
     DinerOrderPanel(){
+
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setTitle("Diner");
         this.setContentPane(dinerOrderPanel);
-        this.setMinimumSize(new Dimension(1045,548));
+        //this.setMinimumSize(new Dimension(1280,720));
+        //this.setMinimumSize(new Dimension(1045,548));
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
         setLocationRelativeTo(null);
 
-        //this.setUndecorated(true);
+        jtItems.setModel(new DefaultTableModel(
+                null,
+                new String[]{"Items","Price","Quantity","Total"}
+        ));
 
-        jpSteakEggs.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
-                jpSteakEggs.setBackground(Color.gray);
-            }
+        ButtonGroup buttonGroup = new ButtonGroup();
+        buttonGroup.add(rbSteakEggs);
+        buttonGroup.add(rbVeggieSkillet);
+        buttonGroup.add(rb2x2x);
+        buttonGroup.add(rbSteakSandwich);
+        buttonGroup.add(rbFishTacos);
+        buttonGroup.add(rb4PChick);
+        buttonGroup.add(rbSteakDinner);
+        buttonGroup.add(rbFishChips);
+        buttonGroup.add(rb4PChickVeg);
+        
 
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                super.mouseEntered(e);
-                jpSteakEggs.setBackground(new Color(0xe5e5e5));
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                super.mouseExited(e);
-                jpSteakEggs.setBackground(Color.WHITE);
-            }
-        });
-
-        jpSteakSandwich.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
-                jpSteakSandwich.setBackground(Color.gray);
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                super.mouseEntered(e);
-                jpSteakSandwich.setBackground(new Color(0xe5e5e5));
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                super.mouseExited(e);
-                jpSteakSandwich.setBackground(Color.WHITE);
-            }
-        });
-
-        jpSteakDinner.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
-                jpSteakDinner.setBackground(Color.gray);
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                super.mouseEntered(e);
-                jpSteakDinner.setBackground(new Color(0xe5e5e5));
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                super.mouseExited(e);
-                jpSteakDinner.setBackground(Color.WHITE);
-            }
-        });
-
-        jpVeggieSkillet.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
-                jpVeggieSkillet.setBackground(Color.gray);
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                super.mouseEntered(e);
-                jpVeggieSkillet.setBackground(new Color(0xe5e5e5));
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                super.mouseExited(e);
-                jpVeggieSkillet.setBackground(Color.WHITE);
-            }
-        });
-
-        jpFishTacos.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
-                jpFishTacos.setBackground(Color.gray);
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                super.mouseEntered(e);
-                jpFishTacos.setBackground(new Color(0xe5e5e5));
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                super.mouseExited(e);
-                jpFishTacos.setBackground(Color.WHITE);
-            }
-        });
-
-        jpFishChips.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
-                jpFishChips.setBackground(Color.gray);
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                super.mouseEntered(e);
-                jpFishChips.setBackground(new Color(0xe5e5e5));
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                super.mouseExited(e);
-                jpFishChips.setBackground(Color.WHITE);
-            }
-        });
-
-        jp2x2x.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
-                jp2x2x.setBackground(Color.gray);
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                super.mouseEntered(e);
-                jp2x2x.setBackground(new Color(0xe5e5e5));
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                super.mouseExited(e);
-                jp2x2x.setBackground(Color.WHITE);
-            }
-        });
-
-        jp4PFChicken.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
-                jp4PFChicken.setBackground(Color.gray);
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                super.mouseEntered(e);
-                jp4PFChicken.setBackground(new Color(0xe5e5e5));
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                super.mouseExited(e);
-                jp4PFChicken.setBackground(Color.WHITE);
-            }
-        });
-
-        jp4PFChiVeggies.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
-                jp4PFChiVeggies.setBackground(Color.gray);
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                super.mouseEntered(e);
-                jp4PFChiVeggies.setBackground(new Color(0xe5e5e5));
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                super.mouseExited(e);
-                jp4PFChiVeggies.setBackground(Color.WHITE);
-            }
-        });
-
-        logoutButton.addActionListener(new ActionListener() {
+        addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int answer = JOptionPane.showConfirmDialog(null,"Are you sure you want to logout?","Logout",JOptionPane.OK_CANCEL_OPTION,JOptionPane.WARNING_MESSAGE);
-                if(answer == 0){
-                    dispose();
-                    LoginPanel loginPanel = new LoginPanel();
-                }
-            }
-        });
 
-        exitButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int answer = JOptionPane.showConfirmDialog(null,"Are you sure you want to exit?","Exit",JOptionPane.OK_CANCEL_OPTION,JOptionPane.WARNING_MESSAGE);
-                if(answer == 0){
-                    dispose();
+                int quantity = Integer.parseInt(spinQuantity.getValue().toString());
+
+                if (rbSteakEggs.isSelected() == false && rbVeggieSkillet.isSelected() == false && rb2x2x.isSelected() == false && rbSteakSandwich.isSelected() == false &&
+                        rbFishTacos.isSelected() == false && rb4PChick.isSelected() == false && rbSteakDinner.isSelected() == false && rbFishChips.isSelected() == false && rb4PChickVeg.isSelected() == false) {
+
+                    JOptionPane.showMessageDialog(null,
+                            "Please select as least one",
+                            "Try again",
+                            JOptionPane.ERROR_MESSAGE);
+
+                }else if(quantity == 0){
+                    JOptionPane.showMessageDialog(null,
+                            "Please select quantity",
+                            "Try again",
+                            JOptionPane.ERROR_MESSAGE);
+                }else{
+                    if (rbSteakEggs.isSelected() == true) {
+                        itemName = "Steak and Eggs";
+                        price = 100;
+                    } else if (rbVeggieSkillet.isSelected() == true) {
+                        itemName = "Veggie Skillet";
+                        price = 100;
+                    } else if (rb2x2x.isSelected() == true) {
+                        itemName = "2 x 2 x 2";
+                        price = 100;
+                    } else if (rbSteakSandwich.isSelected() == true) {
+                        itemName = "Steak Sandwich";
+                        price = 150;
+                    } else if (rbFishTacos.isSelected() == true) {
+                        itemName = "Fish Tacos";
+                        price = 150;
+                    } else if (rb4PChick.isSelected() == true) {
+                        itemName = "4P Chicken";
+                        price = 150;
+                    } else if (rbSteakDinner.isSelected() == true) {
+                        itemName = "Steak Dinner";
+                        price = 200;
+                    } else if (rbFishChips.isSelected() == true) {
+                        itemName = "Fish and Chips";
+                        price = 200;
+                    } else if (rb4PChickVeg.isSelected() == true) {
+                        itemName = "4P Chicken Veggies";
+                        price = 200;
+                    }
+
+                    int total = (int) (quantity * price);
+
+                    model = (DefaultTableModel)jtItems.getModel();
+
+                    model.addRow(new Object[]{
+                            itemName,
+                            price,
+                            quantity,
+                            total,
+                    });
+
+                    buttonGroup.clearSelection();
+                    spinQuantity.setValue(0);
+
+                    int sum = 0;
+
+                    for(int a=0 ; a<jtItems.getRowCount() ; a++){
+                        sum = sum + Integer.parseInt(jtItems.getValueAt(a,3).toString());
+                    }
+
+                    jltotal.setText("₱ "+Integer.toString(sum));
+
                 }
+
+
             }
         });
 
         setVisible(true);
+        btnDelete.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int sum = 0;
+                model.removeRow(jtItems.getSelectedRow());
+
+                for(int a=0 ; a<jtItems.getRowCount() ; a++){
+                    sum = sum + Integer.parseInt(jtItems.getValueAt(a,3).toString());
+                }
+
+                jltotal.setText("₱ "+Integer.toString(sum));
+
+            }
+        });
     }
+
 
 
 }

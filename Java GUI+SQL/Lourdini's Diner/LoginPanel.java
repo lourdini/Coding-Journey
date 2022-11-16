@@ -49,7 +49,7 @@ public class LoginPanel extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 try{
                     Class.forName("com.mysql.cj.jdbc.Driver");
-                    Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/coffeeshop","root","root");
+                    Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydiner","root","root");
 
                     String username = tfUsername.getText();
                     String password = pfPassword.getText();
