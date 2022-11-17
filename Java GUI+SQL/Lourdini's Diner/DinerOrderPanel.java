@@ -1,6 +1,8 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 import java.awt.event.*;
+import java.sql.*;
 
 public class DinerOrderPanel extends JFrame{
     private JPanel dinerOrderPanel;
@@ -14,9 +16,9 @@ public class DinerOrderPanel extends JFrame{
     private JPanel jp4PFChicken;
     private JPanel jp4PFChiVeggies;
     private JPanel jpMenu;
-    private JTextArea textArea1;
+    private JTextArea taPrint;
     private JButton btnDelete;
-    private JTextField textField1;
+    private JTextField tfpayment;
     private JButton btnPay;
     private JButton btnPrint;
     private JPanel jpFunctions;
@@ -36,6 +38,7 @@ public class DinerOrderPanel extends JFrame{
     private JRadioButton rb4PChick;
     private JRadioButton rb4PChickVeg;
     private JLabel jltotal;
+    private JLabel jlBalance;
 
     DefaultTableModel model;
 
@@ -47,7 +50,7 @@ public class DinerOrderPanel extends JFrame{
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setTitle("Diner");
         this.setContentPane(dinerOrderPanel);
-        //this.setMinimumSize(new Dimension(1280,720));
+        this.setMinimumSize(new Dimension(1280,720));
         //this.setMinimumSize(new Dimension(1045,548));
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setLocationRelativeTo(null);
@@ -67,7 +70,74 @@ public class DinerOrderPanel extends JFrame{
         buttonGroup.add(rbSteakDinner);
         buttonGroup.add(rbFishChips);
         buttonGroup.add(rb4PChickVeg);
-        
+
+        btnPay.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                int totalBal = Integer.parseInt(jltotal.getText());
+                int paymentBal = Integer.parseInt(tfpayment.getText());
+
+                int balanceBal = paymentBal - totalBal;
+
+                jlBalance.setText(String.valueOf(balanceBal));
+
+                int lastid = 0;
+                try {
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydiner", "root", "root");
+                    PreparedStatement preparedStatement;
+                    PreparedStatement preparedStatement1 = null;
+
+                    String total = jltotal.getText();
+                    String balance = jlBalance.getText();
+                    String payment = tfpayment.getText();
+
+                    String sql = "INSERT INTO `sales`(`subtotal`, `payment`, `balance`) VALUES (?,?,?)";
+                    preparedStatement = connection.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+                    preparedStatement.setString(1, total);
+                    preparedStatement.setString(2, payment);
+                    preparedStatement.setString(3, balance);
+                    preparedStatement.executeUpdate();
+
+                    ResultSet resultSet = preparedStatement.getGeneratedKeys();
+
+                    if(resultSet.next()){
+                        lastid = resultSet.getInt(1);
+                    }
+                    int row = jtItems.getRowCount();
+
+                    String sql1 = "INSERT INTO `sales_product`(`sales_id`, `productname`, `price`, `quantity`, `total`) VALUES (?,?,?,?,?)";
+                    preparedStatement1 = connection.prepareStatement(sql1);
+
+                    String productName = "";
+                    double price;
+                    int quantity;
+                    int totalDB;
+
+                    for(int i=0 ; i<jtItems.getRowCount() ; i++){
+                        productName = (String)jtItems.getValueAt(i,0);
+                        price = (double)jtItems.getValueAt(i,1);
+                        quantity = (int)jtItems.getValueAt(i,2);
+                        totalDB = (int)jtItems.getValueAt(i,3);
+
+                        preparedStatement1.setInt(1, lastid);
+                        preparedStatement1.setString(2, productName);
+                        preparedStatement1.setInt(3, (int) price);
+                        preparedStatement1.setInt(4, quantity);
+                        preparedStatement1.setInt(5, totalDB);
+                        preparedStatement1.executeUpdate();
+
+                    }
+
+                    JOptionPane.showMessageDialog(null,"Sales Completed");
+
+                }catch(Exception i){
+                JOptionPane.showMessageDialog(null,i);
+                }
+            }
+
+        });
 
         addButton.addActionListener(new ActionListener() {
             @Override
@@ -138,7 +208,7 @@ public class DinerOrderPanel extends JFrame{
                         sum = sum + Integer.parseInt(jtItems.getValueAt(a,3).toString());
                     }
 
-                    jltotal.setText("₱ "+Integer.toString(sum));
+                    jltotal.setText(Integer.toString(sum));
 
                 }
 
@@ -146,7 +216,6 @@ public class DinerOrderPanel extends JFrame{
             }
         });
 
-        setVisible(true);
         btnDelete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -161,6 +230,47 @@ public class DinerOrderPanel extends JFrame{
 
             }
         });
+
+        logoutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int answer = JOptionPane.showConfirmDialog(null,"Are you sure you want to logout?","Logout",JOptionPane.OK_CANCEL_OPTION,JOptionPane.WARNING_MESSAGE);
+                if(answer == 0){
+                    dispose();
+                    LoginPanel loginPanel = new LoginPanel();
+                }
+            }
+        });
+
+        exitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int answer = JOptionPane.showConfirmDialog(null,"Are you sure you want to exit?","Exit",JOptionPane.OK_CANCEL_OPTION,JOptionPane.WARNING_MESSAGE);
+                if(answer == 0){
+                    dispose();
+                }
+            }
+        });
+
+        taPrint.setText("                                          Get receipt here                                           \n");
+
+
+        btnPrint.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                try{
+                    taPrint.setText(taPrint.getText()+"Hi\n");
+
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                }
+
+            }
+        });
+
+        setVisible(true);
+
     }
 
 

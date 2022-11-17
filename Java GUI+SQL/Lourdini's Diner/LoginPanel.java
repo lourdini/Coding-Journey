@@ -43,7 +43,6 @@ public class LoginPanel extends JFrame{
             }
         });
 
-
         btnLogin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
