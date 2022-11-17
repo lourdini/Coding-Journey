@@ -4,9 +4,9 @@ public class Main {
 
         //CoffeeShopPanel coffeeShop = new CoffeeShopPanel();
         //RegisterPanel registerPanel = new RegisterPanel();
-        DinerOrderPanel dinerOrderPanel = new DinerOrderPanel();
+        //DinerOrderPanel dinerOrderPanel = new DinerOrderPanel();
 
-        //LoginPanel loginPanel = new LoginPanel();
+        LoginPanel loginPanel = new LoginPanel();
 
 
     }

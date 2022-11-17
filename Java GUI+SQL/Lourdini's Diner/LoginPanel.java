@@ -58,11 +58,24 @@ public class LoginPanel extends JFrame{
 
                     ResultSet resultSet = statement.executeQuery(sql);
 
-                    if(resultSet.next()){
-                        dispose();
-                        DinerOrderPanel dinerOrderPanel = new DinerOrderPanel();
-                    }else{
-                        JOptionPane.showMessageDialog(null,"Username and Password do not match");
+                    String[] shopSelector = {"Coffee Shop","Diner"};
+                    if(resultSet.next()) {
+                        int answer = JOptionPane.showOptionDialog(null,
+                                "Select Shop",
+                                "Shop Selection",
+                                JOptionPane.YES_NO_CANCEL_OPTION,
+                                JOptionPane.INFORMATION_MESSAGE,
+                                null,
+                                shopSelector,
+                                0);
+
+                        if (answer == 0) {
+                            CoffeeShopPanel coffeeShop = new CoffeeShopPanel();
+                        } else if (answer == 1) {
+                            DinerOrderPanel dinerOrderPanel = new DinerOrderPanel();
+                        } else {
+                            dispose();
+                        }
                     }
 
                 }catch(Exception i){
