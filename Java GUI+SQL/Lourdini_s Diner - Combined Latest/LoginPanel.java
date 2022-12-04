@@ -71,8 +71,10 @@ public class LoginPanel extends JFrame{
 
                         if (answer == 0) {
                             CoffeeShopPanel coffeeShop = new CoffeeShopPanel();
+                            dispose();
                         } else if (answer == 1) {
                             DinerOrderPanel dinerOrderPanel = new DinerOrderPanel();
+                            dispose();
                         } else {
                             dispose();
                         }
